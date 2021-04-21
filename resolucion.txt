@@ -1,0 +1,55 @@
+class Atuendo {
+    private Prenda calzado;
+    private Prenda parteInferior;
+    private Prenda parteSuperior;
+    private List<Prenda> accesorios;
+}
+
+class Ropero {
+    List<Prenda> prendas;
+
+    public void addAListaPrendas(Prenda prenda) {
+        prendas.add(prenda);
+    }
+}
+
+class Prenda {
+    private Categoria categoria;
+    private Tipo tipoPrenda;
+    private Tela tela;
+    private Color colorPrimario;
+    private Color colorSecundario;
+
+
+    Prenda(Tipo tipo, Tela tela, Color colorP, Color colorS) {
+        this.tipoPrenda = tipo;
+        this.tela = tela;
+        this.colorPrimario = colorP;
+        this.colorSecundario = colorS;
+    }
+}
+
+enum Categoria {
+    CALZADO,
+    PARTEINFERIOR,
+    PARTESUPERIOR,
+    ACCESORIO
+}
+
+class Usuario {
+    Atuendo atuendo;
+    private Ropero ropero;
+    
+    Usuario(){
+        this.ropero = new Ropero();
+    }
+
+    public void cargarPrendaARopero(Categoria categoria, Tipo tipo, Tela tela, Color colorP, Color colorS) {
+        if(tipo.esCategoria(categoria){
+            Prenda prenda = new Prenda(categoria, tipo, tela, colorP, colorS);
+            ropero.cargarPrenda(prenda);
+        }else{
+            throw new TipoNoEsCategoriaException;
+        }
+    }
+}
